@@ -163,19 +163,19 @@ insert into persons(first_name, second_name) values('petr', 'petrov'); commit;
 
 сделать select * from persons во второй сессии
 
-**postgres=# select * from persons;
+**postgres=# select * from persons;**
 
- **id | first_name | second_name
+ **id | first_name | second_name**
 
-**----+------------+-------------
+**----+------------+-------------**
 
-  **1 | ivan       | ivanov
+  **1 | ivan       | ivanov**
 
-  **2 | petr       | petrov
+  **2 | petr       | petrov**
 
-  **3 | sergey     | sergeev
+  **3 | sergey     | sergeev**
 
-  **4 | sveta      | svetova
+  **4 | sveta      | svetova**
 
 
 видите ли вы новую запись и если да то почему?

@@ -39,11 +39,11 @@ insert into persons(first_name, second_name) values('petr', 'petrov'); commit;
 
 **postgres=*# show transaction isolation level;**
 
-** transaction_isolation**
+ **transaction_isolation**
 
 **-----------------------**
 
-** read committed**
+ **read committed**
 
 начать новую транзакцию в обоих сессиях с дефолтным (не меняя) уровнем изоляции
 в первой сессии добавить новую запись insert into persons(first_name, second_name) values('sergey', 'sergeev');
@@ -56,13 +56,13 @@ insert into persons(first_name, second_name) values('petr', 'petrov'); commit;
 
 **postgres=# select * from persons;**
 
-** id | first_name | second_name**
+ **id | first_name | second_name**
 
 **----+------------+-------------**
 
-**  1 | ivan       | ivanov**
+  **1 | ivan       | ivanov**
 
-**  2 | petr       | petrov**
+  **2 | petr       | petrov**
 
 видите ли вы новую запись и если да то почему?
 
@@ -78,15 +78,15 @@ insert into persons(first_name, second_name) values('petr', 'petrov'); commit;
 
 **postgres=*# select * from persons;**
 
-** id | first_name | second_name**
+ **id | first_name | second_name**
 
 **----+------------+-------------**
 
-**  1 | ivan       | ivanov**
+  **1 | ivan       | ivanov**
 
-**  2 | petr       | petrov**
+  **2 | petr       | petrov**
 
-**  3 | sergey     | sergeev**
+  **3 | sergey     | sergeev**
 
 видите ли вы новую запись и если да то почему?
 
@@ -114,20 +114,20 @@ insert into persons(first_name, second_name) values('petr', 'petrov'); commit;
 
 **postgres=*# select * from persons;**
 
-** id | first_name | second_name**
+ **id | first_name | second_name**
 
 **----+------------+-------------**
 
-**  1 | ivan       | ivanov**
+  **1 | ivan       | ivanov**
 
-**  2 | petr       | petrov**
+  **2 | petr       | petrov**
 
-**  3 | sergey     | sergeev**
+  **3 | sergey     | sergeev**
 
 
 видите ли вы новую запись и если да то почему?
 
-**Новая запись видна во второй сессии, так как уровень изоляции repeatable read, а новой записи еще не было на начало транзакции.**
+**Новая запись видна во второй сессии, так как уровень изоляции repeatable read, а новой записи еще не было на начало текущей транзакции.**
 
 завершить первую транзакцию - commit;
 
@@ -139,15 +139,15 @@ insert into persons(first_name, second_name) values('petr', 'petrov'); commit;
 
 **postgres=*# select * from persons;**
 
-** id | first_name | second_name**
+ **id | first_name | second_name**
 
 **----+------------+-------------**
 
-**  1 | ivan       | ivanov**
+  **1 | ivan       | ivanov**
 
-**  2 | petr       | petrov**
+  **2 | petr       | petrov**
 
-**  3 | sergey     | sergeev**
+  **3 | sergey     | sergeev**
 
 
 видите ли вы новую запись и если да то почему?
@@ -164,17 +164,17 @@ insert into persons(first_name, second_name) values('petr', 'petrov'); commit;
 
 **postgres=# select * from persons;
 
-** id | first_name | second_name
+ **id | first_name | second_name
 
 **----+------------+-------------
 
-**  1 | ivan       | ivanov
+  **1 | ivan       | ivanov
 
-**  2 | petr       | petrov
+  **2 | petr       | petrov
 
-**  3 | sergey     | sergeev
+  **3 | sergey     | sergeev
 
-**  4 | sveta      | svetova
+  **4 | sveta      | svetova
 
 
 видите ли вы новую запись и если да то почему?

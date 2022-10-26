@@ -3,6 +3,7 @@
 # Домашнее задание
 
 запустить везде psql из под пользователя postgres
+
 выключить auto commit
 
 **postgres=# \set AUTOCOMMIT off**

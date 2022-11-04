@@ -5,6 +5,7 @@
 ## 2. Установка Doker в ВМ ##
 
 **docker pull postgres**
+
 **docker run -itd -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -v /data:/var/lib/postgresql/data --name postgresql postgres**
 
 **# psql --username=postgres --dbname=postgres**

@@ -1,13 +1,15 @@
-## PostgreSQL для администраторов баз данных и разработчиков ##
-## Занятие 03. Установка PostgreSQL ##
-# Домашнее задание #
-## 1. Установка PostgreSQL в ВМ ##
+## PostgreSQL для администраторов баз данных и разработчиков ##  
+## Занятие 03. Установка PostgreSQL ##  
+# Домашнее задание #  
 
-## 2. Установка PostgreSQL в Docker ##
+>создать ВМ с Ubuntu 20.04/22.04 или развернуть докер любым удобным способом  
+>поставить на нем Docker Engine  
+**выполнил**  
 
-**docker pull postgres**
-
-**docker run -itd -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -v /data:/var/lib/postgresql/data --name postgresql postgres**
+>сделать каталог /var/lib/postgres  
+>развернуть контейнер с PostgreSQL 14 смонтировав в него /var/lib/postgres  
+**docker pull postgres**  
+**docker run -itd -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -v /data:/var/lib/postgresql/data --name postgresql postgres**  
 
 **# psql --username=postgres --dbname=postgres**
 
@@ -25,4 +27,13 @@
 
 **(1 row)**
  
-## 3. Эксперименты с Doker ##
+>подключится к контейнеру с сервером и сделать таблицу с парой строк  
+**выполнил**  
+>подключится к контейнеру с сервером с ноутбука/компьютера извне инстансов GCP/ЯО/места установки докера  
+**подключился из DBeaver**
+>удалить контейнер с сервером
+**выполнил**  
+>создать его заново
+**выполнил**  
+>подключится снова из контейнера с клиентом к контейнеру с сервером
+>проверить, что данные остались на месте

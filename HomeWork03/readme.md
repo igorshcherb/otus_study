@@ -14,7 +14,7 @@
 
 **docker run -itd -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -v /data:/var/lib/postgresql/data --name postgresql postgres**  
 
-![DockerDesktop](https://github.com/igorshcherb/otus_study/raw/{branch}/HomeWork03/DockerDesktop.jpg)
+![DockerDesktop](https://github.com/igorshcherb/otus_study/raw/main/HomeWork03/DockerDesktop.jpg)
 
 **# psql --username=postgres --dbname=postgres**  
 

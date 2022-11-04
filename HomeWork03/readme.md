@@ -44,7 +44,7 @@
 
 >создать его заново
 
-**выполнил**  
+**docker run -itd -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -v /data:/var/lib/postgresql/data --name postgresql postgres**  
 
 >подключится снова из контейнера с клиентом к контейнеру с сервером  
 >проверить, что данные остались на месте  

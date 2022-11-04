@@ -2,7 +2,7 @@
 ## Занятие 03. Установка PostgreSQL ##
 # Домашнее задание #
 ## 1. Установка PostgreSQL в ВМ ##
-## 2. Установка Doker в ВМ ##
+## 2. Установка PostgreSQL в Docker##
 
 **docker pull postgres**
 

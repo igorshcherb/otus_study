@@ -49,4 +49,14 @@
 >подключится снова из контейнера с клиентом к контейнеру с сервером  
 >проверить, что данные остались на месте  
 
-**select * from tab1;**  
+**# psql --username=postgres --dbname=postgres**
+**psql (15.0 (Debian 15.0-1.pgdg110+1))**
+**Type "help" for help.**
+
+**postgres=# select * from tab1;**
+** id | vc  **
+**----+-----**
+**  1 | one**
+**  2 | two**
+**(2 rows)**
+

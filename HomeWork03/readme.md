@@ -32,13 +32,18 @@
 >подключится к контейнеру с сервером и сделать таблицу с парой строк  
 
 **create table tab1(id int8, vc varchar(100));**  
+
 **insert into tab1(id, vc) values (1, 'one');**  
+
 **insert into tab1(id, vc) values (2, 'two');**  
+
 **select * from tab1;**  
 
 >подключится к контейнеру с сервером с ноутбука/компьютера извне инстансов GCP/ЯО/места установки докера  
 
 **подключился из DBeaver**
+
+![DockerDesktop](https://github.com/igorshcherb/otus_study/raw/main/HomeWork03/DBeaver.jpg)
 
 >удалить контейнер с сервером
 
@@ -51,11 +56,13 @@
 >подключится снова из контейнера с клиентом к контейнеру с сервером  
 >проверить, что данные остались на месте  
 
-**# psql --username=postgres --dbname=postgres**  
+**# psql --username=postgres --dbname=postgres** 
+
 **psql (15.0 (Debian 15.0-1.pgdg110+1))**  
 **Type "help" for help.**  
 
 **postgres=# select * from tab1;**  
+
 ** id | vc  **  
 **----+-----**  
 **  1 | one**  

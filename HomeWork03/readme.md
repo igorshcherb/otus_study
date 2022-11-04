@@ -1,8 +1,8 @@
 ## PostgreSQL для администраторов баз данных и разработчиков ##
 ## Занятие 03. Установка PostgreSQL ##
 # Домашнее задание #
-## 1. Установка PostgreSQL в ВМ ##
-## 2. Установка PostgreSQL в Docker##
+##1. Установка PostgreSQL в ВМ ##
+##2. Установка PostgreSQL в Docker##
 
 **docker pull postgres**
 

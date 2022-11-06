@@ -17,9 +17,9 @@
 
 >зайдите из под пользователя postgres в psql и сделайте произвольную таблицу с произвольным содержимым
 
-**postgres=# create table test(c1 text);**
+**postgres1=# create table test(c1 text);**
 
-**postgres=# insert into test values('1');**
+**postgres1=# insert into test values('1');**
 
 **\q**
 

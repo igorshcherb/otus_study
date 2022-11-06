@@ -18,19 +18,19 @@
 
 **\q**
 
-** создал новый диск в ВМ размером 10GB, добавил его к виртуальной машине**
+**создал новый диск в ВМ размером 10GB, добавил его к виртуальной машине**
 
-** инициализировал и отформатировал диск **
+**инициализировал и отформатировал диск **
 
-** подмонтировал диск **
+**подмонтировал диск **
 
-** sudo mkdir /mnt/sdb** 
+**sudo mkdir /mnt/sdb** 
 
-** sudo mount /dev/sdb /mnt/sdb** 
+**sudo mount /dev/sdb /mnt/sdb** 
 
-** sudo nano /etc/fstab**
+**sudo nano /etc/fstab**
 
-** /dev/sdb    /mnt/sdb     ext4      defaults        0             0** 
+**/dev/sdb    /mnt/sdb     ext4      defaults        0             0** 
 
 >перезагрузите инстанс и убедитесь, что диск остается примонтированным
 
@@ -46,7 +46,7 @@
 
 **Warning: stopping the cluster using pg_ctlcluster will mark the systemd unit as failed. Consider using systemctl:**
 
-**  sudo systemctl stop postgresql@14-main**
+**sudo systemctl stop postgresql@14-main**
 
 **sudo systemctl stop postgresql@14-main**
 
@@ -55,7 +55,7 @@
 **sudo mv /var/lib/postgresql/14 /mnt/sdb**
 
 >попытайтесь запустить кластер - sudo -u postgres pg_ctlcluster 14 main start
-> напишите получилось или нет и почему
+>напишите получилось или нет и почему
 
 **Error: /var/lib/postgresql/14/main is not accessible or does not exist**
 
@@ -79,7 +79,7 @@ data_directory = '/mnt/sdb/14/main'
 
 **Warning: the cluster will not be running as a systemd service. Consider using systemctl:**
 
-**  sudo systemctl start postgresql@14-main**
+**sudo systemctl start postgresql@14-main**
 
 **sudo systemctl start postgresql@14-main**
 
@@ -102,7 +102,7 @@ data_directory = '/mnt/sdb/14/main'
 **после перезапуска Ubuntu проблема пропала**
 
 
-> зайдите через через psql и проверьте содержимое ранее созданной таблицы
+>зайдите через через psql и проверьте содержимое ранее созданной таблицы
 
 **psql**
 

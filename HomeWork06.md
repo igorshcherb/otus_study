@@ -69,11 +69,11 @@
 
 **sudo nano /etc/postgresql/14/main/postgresql.conf**
 
-**было**
+**было:**
 
 **data_directory = '/var/lib/postgresql/14/main'**
 
-**стало**
+**стало:**
 
 **data_directory = '/mnt/sdb/14/main'**
 

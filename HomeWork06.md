@@ -117,7 +117,7 @@
 
 **postgres1=# select * from test;**
 
-* c1 *
+*c1*
 
 *----*
 

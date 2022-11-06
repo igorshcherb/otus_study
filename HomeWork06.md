@@ -11,9 +11,9 @@
 
 **sudo -u postgres pg_lsclusters**
 
-**Ver Cluster Port Status Owner    Data directory              Log file**
+*Ver Cluster Port Status Owner    Data directory              Log file*
 
-**14  main    5432 online postgres /var/lib/postgresql/14/main /var/log/postgresql/postgresql-14-main.log**
+*14  main    5432 online postgres /var/lib/postgresql/14/main /var/log/postgresql/postgresql-14-main.log*
 
 >зайдите из под пользователя postgres в psql и сделайте произвольную таблицу с произвольным содержимым
 

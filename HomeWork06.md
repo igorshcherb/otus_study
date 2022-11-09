@@ -25,6 +25,8 @@
 
 **создал новый диск в ВМ размером 10GB, добавил его к виртуальной машине**
 
+![Ubuntu1_new_disk](https://github.com/igorshcherb/otus_study/raw/main/Ubuntu1_new_disk)
+
 **инициализировал и отформатировал диск**
 
 **подмонтировал диск**

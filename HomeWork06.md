@@ -137,6 +137,8 @@
 
 **проделал указанные действия**
 
+![Ubuntu2_disk](https://github.com/igorshcherb/otus_study/raw/main/Ubuntu2_disk.jpg)
+
 **не перезапускал кластер после редактирования /etc/postgresql/14/main/postgresql.conf, сразу перезапустил Ubuntu**
 
 **получил результат:**

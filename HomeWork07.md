@@ -1,3 +1,9 @@
+## PostgreSQL для администраторов баз данных и разработчиков ##  
+## Занятие 07. Логический уровень PostgreSQL ##  
+# Домашнее задание #  
+
+
+
 >1 создайте новый кластер PostgresSQL 14
 $ sudo -i -u postgres
 $ /usr/lib/postgresql/14/bin/initdb -D /var/lib/postgresql/14/notmain

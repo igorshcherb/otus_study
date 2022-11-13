@@ -48,7 +48,7 @@
 
 **done in 0.25 s (drop tables 0.01 s, create tables 0.02 s, client-side generate 0.12 s, vacuum 0.06 s, primary keys 0.04 s).**
   
-  
+**  **
 
 **postgres@adm1-VirtualBox:~$ pgbench -c8 -P 60 -T 600 -U postgres postgres**
 

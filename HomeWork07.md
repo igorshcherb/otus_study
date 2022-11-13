@@ -137,10 +137,15 @@
 >19 посмотрите на список таблиц
 
 **testdb=> \dt testnm.* **
+
 **List of relations**
+
 **Schema | Name | Type  |  Owner** 
+
 **--------+------+-------+----------**
+
 **testnm | t1   | table | postgres**
+
 **(1 row)**
 
 >20 подсказка в шпаргалке под пунктом 20
@@ -151,33 +156,41 @@
 >22 вернитесь в базу данных testdb под пользователем postgres
 
 **testdb=> \c - postgres**
+
 **You are now connected to database "testdb" as user "postgres".**
 
 >23 удалите таблицу t1
 
 **testdb=# drop table testnm.t1;**
+
 **DROP TABLE**
 
 >24 создайте ее заново но уже с явным указанием имени схемы testnm
 
 **testdb=# create table testnm.t1 (c1 integer);**
+
 **CREATE TABLE**
 
 >25 вставьте строку со значением c1=1
 
 **testdb=# insert into testnm.t1(c1) values (1);**
+
 **INSERT 0 1**
 
 >26 зайдите под пользователем testread в базу данных testdb
 
 **testdb=# \c - testread**
+
 **You are now connected to database "testdb" as user "testread".**
 
 >27 сделайте select * from testnm.t1;
 
 **testdb=> select * from testnm.t1;**
+
 **2022-11-10 22:00:02.098 MSK [4269] ERROR:  permission denied for table t1**
+
 **2022-11-10 22:00:02.098 MSK [4269] STATEMENT:  select * from testnm.t1;**
+
 **ERROR:  permission denied for table t1**
 
 >28 получилось?
@@ -191,6 +204,7 @@
 >30 как сделать так чтобы такое больше не повторялось? 
 
 **\c testdb postgres;**
+
 **alter default privileges in schema testnm grant select on tables to readonly;**
 
 >31 сделайте select * from testnm.t1;
@@ -205,9 +219,13 @@
 >31 сделайте select * from testnm.t1;
 
 **select * from testnm.t1;**
+
 **c1**
+
 **----**
+
 **1**
+
 **(1 row)**
 
 >32 получилось?
@@ -217,7 +235,9 @@
 >36 есть идеи как убрать эти права?
 
 **\c testdb postgres;** 
+
 **revoke CREATE on SCHEMA public FROM public;**
+
 **revoke all on DATABASE testdb FROM public;**
 
 >37 если вы справились сами то расскажите что сделали и почему, если смотрели шпаргалку - объясните что сделали и почему выполнив указанные в ней команды

@@ -12,17 +12,27 @@
 **/usr/lib/postgresql/14/bin/pg_ctl start -D /var/lib/postgresql/14/notmain**
 
 **waiting for server to start....2022-11-10 08:49:38.179 MSK [3849] LOG:  starting PostgreSQL 14.5 (Ubuntu 14.5-0ubuntu0.22.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0, 64-bit**
+
 **2022-11-10 20:49:38.179 MSK [3849] LOG:  listening on IPv4 address "127.0.0.1", port 5433**
+
 **2022-11-10 20:49:38.181 MSK [3849] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5433"**
+
 **2022-11-10 20:49:38.188 MSK [3850] LOG:  database system was shut down at 2022-11-07 19:40:04 MSK**
+
 **2022-11-10 20:49:38.194 MSK [3849] LOG:  database system is ready to accept connections**
+
 **done**
+
 **server started**
 
 **psql -U postgres -p 5433 -c 'SELECT now();'**
-**now**           
+
+**now**  
+
 **-------------------------------**
+
 **2022-11-10 20:54:10.769898+03**
+
 **(1 row)**
 
 
@@ -109,6 +119,7 @@
 **использовать alter user testread set search_path to testnm;**
 
 >17 напишите что именно произошло в тексте домашнего задания
+>
 >18 у вас есть идеи почему? ведь права то дали?
 
 **Если бы не указал схему:**
@@ -149,6 +160,7 @@
 **(1 row)**
 
 >20 подсказка в шпаргалке под пунктом 20
+>
 >21 а почему так получилось с таблицей (если делали сами и без шпаргалки то может у вас все нормально)
 
 **У меня все нормально.**
@@ -229,9 +241,13 @@
 **(1 row)**
 
 >32 получилось?
+>
 >33 ура!
+>
 >34 теперь попробуйте выполнить команду create table t2(c1 integer); insert into t2 values (2);
+>
 >35 а как так? нам же никто прав на создание таблиц и insert в них под ролью readonly?
+>
 >36 есть идеи как убрать эти права?
 
 **\c testdb postgres;** 
@@ -241,7 +257,9 @@
 **revoke all on DATABASE testdb FROM public;**
 
 >37 если вы справились сами то расскажите что сделали и почему, если смотрели шпаргалку - объясните что сделали и почему выполнив указанные в ней команды
+>
 >38 теперь попробуйте выполнить команду create table t3(c1 integer); insert into t2 values (2);
+>
 >39 расскажите что получилось и почему
 
-**На этот раз команда создания таблицы под пользователем testread не выполнилась.**
+**На этот раз команда создания таблицы под пользователем testread не выполнилась, потому что права были отозваны у public-а.**

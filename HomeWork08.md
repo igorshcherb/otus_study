@@ -22,7 +22,7 @@
 >так чтобы получить максимально ровное значение tps
 
 
-**pgbench -i postgres**
+**sudo -i -u postgres**
 
 **pgbench -i postgres**
 

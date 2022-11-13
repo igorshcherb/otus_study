@@ -114,15 +114,23 @@
 **Если бы не указал схему:**
 
 **select * from t1;**
+
 **2022-11-10 21:42:40.674 MSK [4162] ERROR:  relation "t1" does not exist at character 15**
+
 **2022-11-10 21:42:40.674 MSK [4162] STATEMENT:  select * from t1;**
+
 **ERROR:  relation "t1" does not exist**
+
 **LINE 1: select * from t1;**
 
 **postgres=# show search_path;**
+
 **search_path**
+
 **-----------------**
+
 **"$user", public**
+
 **(1 row)**
 
 

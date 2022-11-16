@@ -48,7 +48,7 @@
 
 **done in 0.25 s (drop tables 0.01 s, create tables 0.02 s, client-side generate 0.12 s, vacuum 0.06 s, primary keys 0.04 s).**
 
-###Запустил pgbench на сервере с настройками по умолчанию###
+### Запустил pgbench на сервере с настройками по умолчанию ###
 
 
 **postgres@adm1-VirtualBox:~$ pgbench -c8 -P 60 -T 600 -p 5433 -U postgres postgres**
@@ -99,7 +99,7 @@
 
 **tps = 929.395574 (without initial connection time)**
 
-###Сделал рекомендованные настройки PostgreSQL###
+### Сделал рекомендованные настройки PostgreSQL ###
 
 **max_connections = 40**
 
@@ -125,7 +125,7 @@
 
 **max_wal_size = 16GB**
 
-###Запустил pgbench на сервере с рекомендованными настройками###
+### Запустил pgbench на сервере с рекомендованными настройками ###
 
 **pgbench -c8 -P 60 -T 600 -p 5433 -U postgres postgres**
 
@@ -175,9 +175,9 @@
 
 **tps = 881.872580 (without initial connection time)**
 
-###Вывод 1: установка рекомендованных параметров ухудшила показатели производительности PostgreSQL###
+### Вывод 1: установка рекомендованных параметров ухудшила показатели производительности PostgreSQL ###
 
-###Установил настройки autovacuum ("мягкие" настройки)###
+### Установил настройки autovacuum ("мягкие" настройки) ###
 
 **autovacuum_work_mem = -1**
 
@@ -207,7 +207,7 @@
 
 **autovacuum_vacuum_cost_limit = -1**
 
-###Запустил pgbench с включенным autovacuum###
+### Запустил pgbench с включенным autovacuum ###
 
 **pgbench -c8 -P 60 -T 600 -p 5433 -U postgres postgres**
 
@@ -257,9 +257,9 @@
 
 **tps = 917.540383 (without initial connection time)**
 
-###Вывод 2: "мягкий" autovacuum почти не снижает производительность сервера###
+### Вывод 2: "мягкий" autovacuum почти не снижает производительность сервера ###
 
-###Сделал настройки autovacuum более "жесткими"###
+### Сделал настройки autovacuum более "жесткими" ###
 
 **autovacuum_max_workers = 3**
 
@@ -273,7 +273,7 @@
 
 **autovacuum_analyze_scale_factor = 0.005**
 
-###Запустил pgbench с "жесткими" настройками autovacuum ###
+### Запустил pgbench с "жесткими" настройками autovacuum ###
 
 **pgbench -c8 -P 60 -T 600 -p 5433 -U postgres postgres**
 
@@ -323,5 +323,5 @@
 
 **tps = 916.342294 (without initial connection time)**
 
-###Вывод 3: "жесткий" autovacuum немного снижает производительность сервера###
+### Вывод 3: "жесткий" autovacuum немного снижает производительность сервера ###
 

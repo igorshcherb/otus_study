@@ -120,25 +120,25 @@ data_checksums
 
 >Создайте таблицу. Вставьте несколько значений.
 
-create table test_text(t text);
+create table test_text(t text);  
 CREATE TABLE  
 insert into test_text values('сбой');  
-INSERT 0 1
+INSERT 0 1  
 
 >Выключите кластер. Измените пару байт в таблице.
 
 sudo pg_ctlcluster 14 notmain stop -m immediate  
 
-SELECT pg_relation_filepath('test_text');
+SELECT pg_relation_filepath('test_text');  
 pg_relation_filepath  
 
-pg_relation_filepath 
+pg_relation_filepath  
 **----------------------**  
- base/13799/41573
-(1 row)
+ base/13799/41573  
+(1 row)  
 
  
-dd if=/dev/zero of=/var/lib/postgresql/14/notmain/base/13799/41573 oflag=dsync conv=notrunc bs=1 count=8
+dd if=/dev/zero of=/var/lib/postgresql/14/notmain/base/13799/41573 oflag=dsync conv=notrunc bs=1 count=8  
 
 >Включите кластер и сделайте выборку из таблицы. 
 >Что и почему произошло? как проигнорировать ошибку и продолжить работу?

@@ -6,7 +6,7 @@
 
 В файле postgresql.conf:  
 
-checkpoint_timeout = 30s  
+**checkpoint_timeout = 30s**  
 
 Перезапустил кластер:  
 

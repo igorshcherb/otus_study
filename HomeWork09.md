@@ -113,7 +113,7 @@ pgbench -P 1 -T 10 -p 5433 -U postgres postgres
 >Создайте новый кластер с включенной контрольной суммой страниц.
  
 show data_checksums;  
- data_checksums   
+data_checksums
 ----------------  
  on  
 (1 row)  
@@ -130,7 +130,9 @@ INSERT 0 1
 sudo pg_ctlcluster 14 notmain stop -m immediate  
 
 SELECT pg_relation_filepath('test_text');
- pg_relation_filepath 
+pg_relation_filepath  
+
+pg_relation_filepath 
 ----------------------
  base/13799/41573
 (1 row)

@@ -114,7 +114,7 @@ pgbench -P 1 -T 10 -p 5433 -U postgres postgres
  
 show data_checksums;  
 data_checksums
-----------------  
+**----------------**  
  on  
 (1 row)  
 
@@ -133,7 +133,7 @@ SELECT pg_relation_filepath('test_text');
 pg_relation_filepath  
 
 pg_relation_filepath 
-----------------------
+**----------------------**  
  base/13799/41573
 (1 row)
 

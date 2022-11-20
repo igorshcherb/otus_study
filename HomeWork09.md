@@ -101,8 +101,48 @@ checkpoints_req — по требованию.
 
 >Сравните tps в синхронном/асинхронном режиме утилитой pgbench. 
 >Объясните полученный результат.
->Создайте новый кластер с включенной контрольной суммой страниц. 
->Создайте таблицу. Вставьте несколько значений. 
->Выключите кластер. Измените пару байт в таблице. 
+
+pgbench -P 1 -T 10 -p 5433 -U postgres postgres
+
+alter system set synchronous_commit = off;
+
+pgbench -P 1 -T 10 -p 5433 -U postgres postgres
+
+**При асинхронной записи уменьшилось время отклика.**   
+
+>Создайте новый кластер с включенной контрольной суммой страниц.
+ 
+show data_checksums;  
+ data_checksums   
+----------------  
+ on  
+(1 row)  
+
+>Создайте таблицу. Вставьте несколько значений.
+
+create table test_text(t text);
+CREATE TABLE  
+insert into test_text values('сбой');  
+INSERT 0 1
+
+>Выключите кластер. Измените пару байт в таблице.
+
+sudo pg_ctlcluster 14 notmain stop -m immediate  
+
+SELECT pg_relation_filepath('test_text');
+ pg_relation_filepath 
+----------------------
+ base/13799/41573
+(1 row)
+
+ 
+dd if=/dev/zero of=/var/lib/postgresql/14/notmain/base/13799/41573 oflag=dsync conv=notrunc bs=1 count=8
+
 >Включите кластер и сделайте выборку из таблицы. 
 >Что и почему произошло? как проигнорировать ошибку и продолжить работу?
+
+**Ошибка: page verification failed**
+
+**Для того, чтобы проигнорировать ошибку, нужно:**  
+**set ignore_checksum_failure = on;**  
+

@@ -113,7 +113,7 @@ pgbench -P 1 -T 10 -p 5433 -U postgres postgres
 >Создайте новый кластер с включенной контрольной суммой страниц.
  
 show data_checksums;  
-data_checksums
+data_checksums  
 **----------------**  
  on  
 (1 row)  

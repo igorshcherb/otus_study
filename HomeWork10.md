@@ -12,13 +12,13 @@ sudo pg_ctlcluster 14 main start
 
 psql -U postgres -c 'show log_lock_waits'  
  log_lock_waits   
-----------------  
+**----------------**  
  on  
 (1 row)  
 
 psql -U postgres -c 'show log_min_duration_statement'  
  log_min_duration_statement   
-----------------------------  
+**----------------------------**  
  200ms  
 (1 row)  
  

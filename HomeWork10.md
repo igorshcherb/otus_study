@@ -318,7 +318,7 @@ Process 2072 waits for ShareLock on transaction 558463; blocked by process 2074.
 HINT:  See server log for query details.  
 CONTEXT:  while updating tuple (0,9) in relation "test2"  
 
-В журнале сообщений:  
+**В журнале сообщений:**  
 
 2022-11-23 19:46:35.300 MSK [2074] postgres@postgres ERROR:  deadlock detected  
 2022-11-23 19:46:35.300 MSK [2074] postgres@postgres DETAIL:  Process 2074 waits for ShareLock on transaction 558461; blocked by process 2070.  

@@ -5,8 +5,8 @@
 >1. Настройте сервер так, чтобы в журнал сообщений сбрасывалась информация о блокировках, удерживаемых более 200 миллисекунд.  
 
 В файле /etc/postgresql/14/main/postgresql.conf  
-log_lock_waits = on  
-log_min_duration_statement = 200  
+**log_lock_waits = on**  
+**log_min_duration_statement = 200**  
 sudo pg_ctlcluster 14 main stop  
 sudo pg_ctlcluster 14 main start  
 

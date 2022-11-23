@@ -24,22 +24,22 @@ psql -U postgres -c 'show log_min_duration_statement'
  
 >Воспроизведите ситуацию, при которой в журнале появятся такие сообщения.  
 
-В первой сессии:  
+**В первой сессии:**  
 postgres=# \set AUTOCOMMIT off  
 create table test1(vc varchar(50));  
 insert into test1(vc) values ('01');  
 insert into test1(vc) values ('02');  
 update test1 set vc = vc || 'x';  
 
-Во второй сессии:  
+**Во второй сессии:**  
 update test1 set vc = vc || 'x';  
 
-Журнал:  
+**Журнал:**  
 pg_lsclusters  
 Ver Cluster Port Status Owner    Data directory              Log file  
 14  main    5432 online postgres /var/lib/postgresql/14/main /var/log/postgresql/postgresql-14-main.log  
 
-В журнале:  
+**В журнале:**  
 2022-11-23 18:08:19.161 MSK [4095] postgres@postgres LOG:  process 4095 still waiting for ShareLock on transaction 558446 after 1001.131 ms  
 2022-11-23 18:08:19.161 MSK [4095] postgres@postgres DETAIL:  Process holding the lock: 4046. Wait queue: 4095.  
 2022-11-23 18:08:19.161 MSK [4095] postgres@postgres CONTEXT:  while updating tuple (0,3) in relation "test1"  

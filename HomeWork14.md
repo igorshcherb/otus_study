@@ -125,5 +125,56 @@ select * from test2;
  30  
 (3 rows)  
 
+### Создание 3-го кластера и подписок в нем ###  
+
+sudo -i -u postgres    
+pg_createcluster -d /var/lib/postgresql/14/main3 14 main3   
+sudo systemctl start postgresql@14-main3  
+
+pg_lsclusters  
+Ver Cluster Port Status Owner    Data directory               Log file  
+14  main    5432 online postgres /var/lib/postgresql/14/main  /var/log/postgresql/postgresql-14-main.log  
+14  main2   5433 online postgres /var/lib/postgresql/14/main2 /var/log/postgresql/postgresql-14-main2.log  
+14  main3   5434 online postgres /var/lib/postgresql/14/main3 /var/log/postgresql/postgresql-14-main3.log  
+
+psql -U postgres -p 5434  
+
+create table test(id int);    
+create table test2(id int);  
+
+create subscription test2_sub3   
+connection 'host=localhost port=5433 user=postgres   
+password=p dbname=postgres'   
+publication test2_pub with (copy_data=true);  
+
+create subscription test_sub3   
+connection 'host=localhost port=5432 user=postgres  
+password=p dbname=postgres'  
+publication test_pub with (copy_data=true);  
+
+\dRs   
+             List of subscriptions  
+    Name    |  Owner   | Enabled | Publication  
+------------+----------+---------+-------------  
+ test2_sub3 | postgres | t       | {test2_pub}  
+ test_sub3  | postgres | t       | {test_pub}  
+(2 rows)  
+
+select * from test;  
+ id  
+**----**   
+  1  
+  2  
+  3  
+(3 rows)  
+
+select * from test2;  
+ id  
+**----** 
+ 10  
+ 20  
+ 30  
+(3 rows)  
+
 
 

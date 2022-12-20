@@ -107,7 +107,7 @@ insert into test values (1), (2), (3);
 psql -U postgres -p 5433  
 select * from test;  
  id   
- - - - -  
+**----**
   1  
   2  
   3  

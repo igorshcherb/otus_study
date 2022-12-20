@@ -170,7 +170,7 @@ select * from test;
 
 select * from test2;  
  id  
-**----** 
+**----**  
  10  
  20  
  30  

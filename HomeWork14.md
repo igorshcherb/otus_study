@@ -11,7 +11,7 @@
 
 Преподаватель разрешил вместо отдельных ВМ использовать кластеры в одной ВМ.  
 
-### Создание 2-го кластера ###
+### Создание второго кластера ###
 
 sudo -i -u postgres  
 pg_createcluster -d /var/lib/postgresql/14/main2 14 main2  
@@ -22,7 +22,7 @@ Ver Cluster Port Status Owner    Data directory               Log file
 14  main    5432 online postgres /var/lib/postgresql/14/main  /var/log/postgresql/postgresql-14-main.log  
 14  main2   5433 online postgres /var/lib/postgresql/14/main2 /var/log/postgresql/postgresql-14-main2.log  
 
-### Создание таблиц и публикаций ###
+### Создание таблиц и публикаций в первых двух кластерах ###
 
 psql -U postgres -p 5432  
 
@@ -70,7 +70,7 @@ Tables:
     "public.test2"  
 
 
-### Создание подписок ###
+### Создание подписок в первых двух кластерах ###
 
 psql -U postgres -p 5432  
 create subscription test2_sub  
@@ -99,7 +99,7 @@ publication test_pub with (copy_data=true);
 
 \q  
 
-### Проверка логической репликации ###
+### Проверка логической репликации в первых двух кластерах ###
 
 psql -U postgres -p 5432  
 insert into test values (1), (2), (3);  
@@ -175,6 +175,48 @@ select * from test2;
  20  
  30  
 (3 rows)  
+
+
+>Задание со звездочкой*  
+>реализовать горячее реплицирование для высокой доступности на 4ВМ.   
+>Источником должна выступать ВМ №3.  
+>Написать с какими проблемами столкнулись.  
+
+### Создание 4-го кластера - горячее реплицирование ###  
+sudo -i -u postgres  
+pg_createcluster -d /var/lib/postgresql/14/main4 14 main4  
+sudo systemctl start postgresql@14-main4  
+pg_lsclusters  
+Ver Cluster Port Status Owner    Data directory               Log file  
+14  main    5432 online postgres /var/lib/postgresql/14/main  /var/log/postgresql/postgresql-14-main.log  
+14  main2   5433 online postgres /var/lib/postgresql/14/main2 /var/log/postgresql/postgresql-14-main2.log  
+14  main3   5434 online postgres /var/lib/postgresql/14/main3 /var/log/postgresql/postgresql-14-main3.log  
+14  main4   5435 online postgres /var/lib/postgresql/14/main4 /var/log/postgresql/postgresql-14-main4.log  
+
+sudo systemctl stop postgresql@14-main4  
+rm -rf /var/lib/postgresql/14/main4  
+pg_basebackup -p 5434 -R -D /var/lib/postgresql/14/main4  
+echo 'port=5435'>>/var/lib/postgresql/14/main4/postgresql.auto.conf  
+echo 'hot_standby_feedback=off'>>/var/lib/postgresql/14/main4/postgresql.auto.conf  
+echo 'max_standby_streaming_delay=0'>>/var/lib/postgresql/14/main4/postgresql.auto.conf  
+sudo systemctl start postgresql@14-main4  
+
+echo 'synchronous_commit=on'>>/var/lib/postgresql/14/main3/postgresql.auto.conf  
+sudo systemctl restart postgresql@14-main3  
+
+### Проверка физической репликации ###
+psql -U postgres -p 5432  
+insert into test values (333);  
+
+psql -U postgres -p 5435  
+select * from test;  
+ id  
+**----**   
+   1  
+   2  
+   3  
+ 333  
+(4 rows)  
 
 
 

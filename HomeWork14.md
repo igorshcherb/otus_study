@@ -119,7 +119,7 @@ insert into test2 values (10), (20), (30);
 psql -U postgres -p 5432  
 select * from test2;  
  id   
-**----**
+**----**  
  10  
  20  
  30  

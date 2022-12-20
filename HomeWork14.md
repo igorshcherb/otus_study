@@ -99,7 +99,7 @@ publication test_pub with (copy_data=true);
 
 \q  
 
-### Проверка логической репликации ###  
+### Проверка логической репликации ###
 
 psql -U postgres -p 5432  
 insert into test values (1), (2), (3);  

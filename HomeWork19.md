@@ -118,6 +118,46 @@ create index ind_contracts_period on contracts(period_start, period_end);
 >Сделать комментарии на каждый запрос.  
 >К работе приложить структуру таблиц, для которых выполнялись соединения.  
 
+### Прямое соединение ###
+select  
+  con.con_id,  
+  cust.name  
+from contracts con  
+  join customers cust on cust.cust_id = con.cust_id;  
+
+### Левостороннее соединение ###
+select  
+  con.con_id,  
+  cust.name  
+from contracts con  
+  left join customers cust on cust.cust_id = con.cust_id;  
+
+### Кросс соединение ###
+select  
+  con.con_id,  
+  cust.name  
+from contracts con  
+  cross join customers cust;  
+  
+### Полное соединение ### 
+select  
+  con.con_id,  
+  cust.name  
+from contracts con  
+  full join customers cust on cust.cust_id = con.cust_id;  
+  
+### Запрос с разными типами соединений ###  
+select  
+  con.con_id,  
+  cust.name,  
+  con2.con_id  
+from contracts con  
+  join customers cust on cust.cust_id = con.cust_id  
+  left join contracts con2 on con2.con_date between con.period_start and con.period_end;  
+
+### Структура таблиц, для которых выполнялись соединения ###
+[customers] <- [contracts]
+
 >Задание со звездочкой*  
 >Придумайте 3 своих метрики на основе показанных представлений, отправьте их через ЛК, а так же поделитесь с коллегами в слаке.  
 

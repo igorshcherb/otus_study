@@ -92,6 +92,12 @@ Aggregate  (cost=82.92..82.94 rows=1 width=8)
   ->  Index Only Scan using ind_customers_type on customers  (cost=0.29..74.59 rows=3332 width=0)  
         Index Cond: (type = '2'::text)  
 
+### Индекс для полнотекстового поиска ###
+
+create index idx_gin_customers on customers  
+using gin (to_tsvector('russian', "description"));  
+
+
 >2 вариант:  
 >В результате выполнения ДЗ вы научитесь пользоваться различными вариантами соединения таблиц.  
 >В данном задании тренируются навыки написания запросов с различными типами соединений.  

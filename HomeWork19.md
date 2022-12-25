@@ -83,6 +83,8 @@ insert into contracts values
 
 create index ind_customers_type on customers(type);  
 
+analyze customers;  
+
 explain  
   select count(*) from customers where type = '2';  
 

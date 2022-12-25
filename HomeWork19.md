@@ -60,7 +60,13 @@ insert into customers values
   (4, 'Клиент 4', '2', 'vip_клиент'),  
   (5, 'Клиент 5', '3', ''),  
   (6, 'Клиент 6', '1', ''),  
-  (7, 'Клиент 6', '2', 'надежный_клиент');  
+  (7, 'Клиент 6', '2', 'надежный_клиент'); 
+  
+insert into customers  
+ (select generate_series(8, 10000) as cust_id,  
+    md5(random()::text)::varchar(10) as name,  
+    floor((random()*(4 - 1) + 1)) as type,  
+    md5(random()::text)::varchar(20) as description);  
  
 analyze customers;  
 

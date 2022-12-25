@@ -52,3 +52,5 @@ select
     when 0 then '--'  
     else (n_tup_hot_upd / n_tup_upd)::varchar  
   end m3 from pg_stat_user_tables;  
+
+### Описание данных метрик представил в слаке. ###

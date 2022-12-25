@@ -97,6 +97,13 @@ Aggregate  (cost=82.92..82.94 rows=1 width=8)
 create index idx_gin_customers on customers  
 using gin (to_tsvector('russian', "description"));  
 
+### Индекс на поле с функцией ### 
+
+create index ind_contracts_date on contracts(date_trunc('day', con_date));  
+
+### Индекс на несколько полей ###
+
+create index ind_contracts_period on contracts(period_start, period_end);
 
 >2 вариант:  
 >В результате выполнения ДЗ вы научитесь пользоваться различными вариантами соединения таблиц.  

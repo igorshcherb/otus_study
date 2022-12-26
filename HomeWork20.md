@@ -77,7 +77,7 @@ select * from ticket_flights;
 select tableoid::regclass as partition, count(*) from ticket_flights group by tableoid;  
 
 partition | count  
--- -- -- -- -- -- -- -- -- --
+--------- | -----
 ticket_flights_p0 | 347331  
 ticket_flights_p1 | 349086  
 ticket_flights_p2 | 349309  

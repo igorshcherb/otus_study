@@ -81,3 +81,14 @@ partition | count
 ticket_flights_p0 | 347331  
 ticket_flights_p1 | 349086  
 ticket_flights_p2 | 349309  
+
+### Просмотр секционированных объектов ### 
+
+\dP+  
+                                       List of partitioned relations
+  Schema  |         Name         |  Owner   |       Type        |     Table      | Total size | Description 
+--------- | -------------------- | -------- | ----------------- | -------------- | ---------- | ------------
+ bookings | ticket_flights       | postgres | partitioned table |                | 68 MB      | 
+ bookings | ticket_flights_pkey2 | postgres | partitioned index | ticket_flights | 54 MB      | 
+
+

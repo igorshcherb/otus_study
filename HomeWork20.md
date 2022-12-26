@@ -53,18 +53,18 @@ create table ticket_flights_p1
 create table ticket_flights_p2  
   partition of ticket_flights_hash for values with (modulus 3, remainder 2);  
 
-### Заполнение новой таблицы  ###
+### Заполнение новой таблицы  ### 
 
 insert into ticket_flights_hash (select * from ticket_flights);  
 
-### Перенаправление внешнего ключа на новую таблицу ###
+### Перенаправление внешнего ключа на новую таблицу ### 
 
 alter table boarding_passes drop constraint boarding_passes_ticket_no_fkey;  
 alter table boarding_passes add constraint  
   boarding_passes_ticket_no_fkey foreign key (ticket_no,flight_id)  
   references ticket_flights_hash(ticket_no,flight_id);  
 
-### Удаление старой таблицы и переименование новой ###
+### Удаление старой таблицы и переименование новой ### 
 
 drop table ticket_flights;  
 

@@ -26,4 +26,9 @@
 $ mkdir ~/shared  
 $ sudo mount -t vboxsf shared ~/shared  
 $ cd ~/shared  
+sudo nano /etc/fstab  
+Добавить строку: shared	/home/admin_/shared	vboxsf	defaults	0	0  
+sudo nano /etc/modules  
+Добавить строку: vboxsf
+Перезапустить ВМ.  
 

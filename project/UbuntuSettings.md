@@ -2,9 +2,9 @@
 
 ### Настройки разрешения экрана ###
 
-Если разрешение экрана хостовой операционной системы (Windows) 1920 x 1080,
-тогда разрешение экрана гостевой операционной системы (Ubuntu) 1440 x 900.
-Settings -> Displays -> Resolution
+Если разрешение экрана хостовой операционной системы (Windows) 1920 x 1080,  
+тогда разрешение экрана гостевой операционной системы (Ubuntu) 1440 x 900.  
+Settings -> Displays -> Resolution  
 
 ### Добавить значок терминала на панель ###
-Show applications -> Terminal -> Add to favorites
+Show applications -> Terminal -> Add to favorites  

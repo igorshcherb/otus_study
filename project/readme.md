@@ -8,9 +8,11 @@
 
 ### [Настройки VirtualBox](VirtualBoxSettings.md) ###
 
-### [Настройки буфера обмена и общей папки](ClipboardSharedFolder.md) ###
-
 ### [Настройки гостевой операционной системы (Ubuntu)](UbuntuSettings.md) ###
+
+### [Настройки буфера обмена и общих папок](ClipboardSharedFolder.md) ###
+
+
 
 
 

@@ -6,11 +6,13 @@
 
 ### [Настройки хостовой операционной системы (Windows 11)](HostOSSettings.md) ###
 
+### [Настройки VirtualBox](VirtualBoxSettings.md) ###
+
 ### [Настройки буфера обмена и общей папки](ClipboardSharedFolder.md) ###
 
 ### [Настройки гостевой операционной системы (Ubuntu)](UbuntuSettings.md) ###
 
-### [Настройки VirtualBox](VirtualBoxSettings.md) ###
+
 
 ----------------------------  
 

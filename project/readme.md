@@ -2,9 +2,17 @@
 ## Проект на тему: ##  
 # "Подготовка инфраструктуры для разработки хранилищ и витрин данных" #
 
-### [Презентация PPTX](DataMartInfrastructure.pptx) ###
+### Презентация [PPTX](DataMartInfrastructure.pptx) [PDF](DataMartInfrastructure.pdf) ###
 
-### [Презентация PDF](DataMartInfrastructure.pdf) ###
+### [Настройки хостовой операционной системы (Windows 11)](HostOSSettings.md) ###
+
+### [Настройки буфера обмена и общей папки](ClipboardSharedFolder.md) ###
+
+### [Настройки гостевой операционной системы (Ubuntu)](UbuntuSettings.md) ###
+
+### [Настройки VirtualBox](VirtualBoxSettings.md) ###
+
+
 
 ### [Настройки виртуальных машин и гостевых операционных систем](file.txt) ###
 

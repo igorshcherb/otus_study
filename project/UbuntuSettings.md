@@ -12,3 +12,8 @@ Show applications -> Terminal -> Add to favorites
 ### Убрать выключение экрана ###
 Settings -> Power -> Screen blank: Never  
 
+### Добавить русскую раскладку клавиатуры ###
+Settings -> Keyboard -> Input sources -> '+': Russian  
+
+Переключение раскладок (по умолчанию): Win + пробел.  
+

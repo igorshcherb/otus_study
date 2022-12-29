@@ -10,5 +10,5 @@ Settings -> Displays -> Resolution
 Show applications -> Terminal -> Add to favorites  
 
 ### Убрать выключение экрана ###
-Settings -> Power -> Screen blank: Never
+Settings -> Power -> Screen blank: Never  
 

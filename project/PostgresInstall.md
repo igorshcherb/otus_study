@@ -11,7 +11,7 @@ $ sudo -i -u postgres
 $ pg_lsclusters  
 $ psql  
 postgres=# select * from version();  
-alter user postgres with password 'p';  
+alter user postgres with password '<пароль>';  
 postgres=# \q  
 $ exit  
 

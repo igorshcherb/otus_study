@@ -4,19 +4,19 @@
 
 ### Презентация [PPTX](DataMartInfrastructure.pptx) [PDF](DataMartInfrastructure.pdf) ###
 
-### [Настройки хостовой операционной системы (Windows 11)](HostOSSettings.md) ###
+### [Настройки хостовой ОС (Windows 11)](HostOSSettings.md) ###
 
-### [Установка программного обеспечения в хостовую операционную систему (Windows 11)](WindowsSoftware.md) ###
+### [Установка программного обеспечения в хостовую ОС (Windows 11)](WindowsSoftware.md) ###
 
 ### [Настройки VirtualBox](VirtualBoxSettings.md) ###
 
-### [Настройки гостевой операционной системы (Ubuntu)](UbuntuSettings.md) ###
+### [Настройки гостевой ОС (Ubuntu)](UbuntuSettings.md) ###
 
 ### [Настройки буфера обмена и общих папок](ClipboardSharedFolder.md) ###
 
-### [Установка PostgreSQL в гостевую операционную систему (Ubuntu)](PostgresInstall.md) ### 
+### [Установка PostgreSQL в гостевую ОС (Ubuntu)](PostgresInstall.md) ### 
 
-### [Установка программного обеспечения в гостевую операционную систему (Ubuntu)](UbuntuSoftware.md) ###
+### [Установка программного обеспечения в гостевую ОС (Ubuntu)](UbuntuSoftware.md) ###
 
 ----------------------------
 

@@ -18,3 +18,11 @@ $ echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.li
 * обновить список apt и установить DBeaver  
 $ sudo apt update  
 $ sudo apt install dbeaver-ce  
+
+### Настройка DBeaver ###
+Host: localhost  
+Port: 5432  
+Database: postgres  
+Username: postgres  
+Password: <password>  
+  

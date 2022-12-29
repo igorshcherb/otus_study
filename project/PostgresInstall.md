@@ -1,4 +1,4 @@
-### Установка PostgreSQL в гостевую операционную систему (Ubuntu) ###
+## Установка PostgreSQL в гостевую операционную систему (Ubuntu) ##
 
 ### Установка PostgreSQL ###
 $ sudo apt update  

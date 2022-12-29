@@ -8,3 +8,7 @@ Settings -> Displays -> Resolution
 
 ### Добавить значок терминала на панель ###
 Show applications -> Terminal -> Add to favorites  
+
+### Убрать выключение экрана ###
+Settings -> Power -> Screen blank: Never
+

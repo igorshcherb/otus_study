@@ -26,3 +26,5 @@ docker pull postgres
 docker run -itd -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=<пароль> -p 5435:5435 -v /data:/var/lib/postgresql/data --name postgresql postgres  
 docker run --name postgres -p 5435:5435 -e POSTGRES_PASSWORD=<пароль> -d postgres  
 psql --username=postgres --dbname=postgres  
+
+В этом случае для соединения с PostgreSQL используются порт и пароль, заданные в командной строке.  

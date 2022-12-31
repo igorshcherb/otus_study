@@ -65,9 +65,9 @@ insert into payments
 -- delete from entries;  
 insert into entries  
 (with id_pay as  
- (select generate_series(1, 80000) as id,  
-    floor((random()*(40000) + 1)) as fk_payments)  
- ,  
+(select generate_series(1, 80000) as id,  
+floor((random()*40000 + 1)) as fk_payments)  
+,  
  id_pay_json as  
  (select  
     id_pay.id,  

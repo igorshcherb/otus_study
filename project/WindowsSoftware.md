@@ -9,7 +9,7 @@
 Сайт дистрибутива DBeaver:  
 https://dbeaver.io/download/ 
 
-Пример настройки соединения с БД:  
+#### Пример настройки соединения с БД: ####  
 Название соединения: postgres_regsys2  
 Хост: 192.168.1.9  
 Порт: 5433  
@@ -31,7 +31,7 @@ https://www.oracle.com/java/technologies/downloads/#java8
 * PENTAHO_JAVA_HOME = C:\Program Files\Java\jre1.8.0_351  
 * PENTAHO_JAVA = C:\Program Files\Java\jre1.8.0_351  
 
-Пример настройки соединения с БД:  
+#### Пример настройки соединения с БД: #### 
 Connection name: regsys2  
 Connection type: PostgreSQL  
 Access: Native (JDBC)  
@@ -40,6 +40,3 @@ Database Name: postgres
 Port Number: 5433  
 User: postgres  
 Password: <пароль>  
-
-
- 

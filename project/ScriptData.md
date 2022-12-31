@@ -6,7 +6,7 @@
 insert into customers   
  (select generate_series(1, 10000) as id,  
     md5(random()::text)::varchar(10) as name,  
-    floor((random()*(4 - 1) + 1)) as type,  
+    floor((random() * (4 - 1) + 1)) as type,  
     md5(random()::text)::varchar(20) as description);  
    
 -- select count(*) from customers; -- 10000  
@@ -21,7 +21,7 @@ insert into contracts
     (select generate_series(1, 20000) as id,  
            ('2023-01-01'::date + floor((random()*365))::integer) as con_date)  
  select id_date.id,  
-    floor((random()*10000 + 1)) as fk_customers,    
+    floor((random() * 10000 + 1)) as fk_customers,    
     id_date.con_date,  
     id_date.con_date as period_start,  
     '2023-12-31'::date as period_end  
@@ -38,7 +38,7 @@ insert into contracts
 insert into payments  
 (with id_contr as  
  (select generate_series(1, 40000) as id,  
-    floor((random()*20000 + 1)) as fk_contracts)  
+    floor((random() * 20000 + 1)) as fk_contracts)  
  ,  
  id_contr_date as  
  (select  
@@ -50,7 +50,7 @@ insert into payments
    id_contr_date.id,  
    id_contr_date.fk_contracts,  
    (id_contr_date.con_date + (('2023-12-31'::date - id_contr_date.con_date)*random())) as pay_date,  
-   random()*100000 as summa,  
+   random() * 100000 as summa,  
    md5(random()::text)::varchar(20) as description  
  from id_contr_date  
 );  
@@ -78,8 +78,8 @@ floor((random() * 40000 + 1)) as fk_payments)
  select  
    id_pay_json.id as id,  
    id_pay_json.fk_payments as fk_payments,  
-   'Счет' || floor((random()*(10 - 1) + 1))::varchar as debit,  
-   'Счет' || floor((random()*(10 - 1) + 1))::varchar as credit,  
+   'Счет' || floor((random() * (10 - 1) + 1))::varchar as debit,  
+   'Счет' || floor((random() * (10 - 1) + 1))::varchar as credit,  
    (id_pay_json.pay_json ->> 'pay_date')::timestamp as ent_date,   
    (id_pay_json.pay_json ->> 'summa')::numeric as ent_summa,   
    md5(random()::text)::varchar(20) as purpose  

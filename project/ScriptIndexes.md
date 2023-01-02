@@ -1,7 +1,7 @@
 ## Скрипт для создания индексов ##
 
 Индексы создаются для ускорения запросов, которые выполняются при загрузке таблиц хранилища,  
-загрузки витрин, формировании отчетов.  
+загрузке витрин, формировании отчетов.  
 
 create index contracts_date_ind on contracts(con_date);  
 create index contracts_period_ind on contracts(period_start, period_end);  

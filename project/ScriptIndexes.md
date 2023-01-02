@@ -10,7 +10,7 @@ create index entries_date_ind on entries(ent_date);
 create index entries_debit_ind on entries(debit);  
 create index entries_credit_ind on entries(credit);  
 create index payments_date_ind on payments(pay_date);  
---  
+  
 create index dwh_contracts_date_ind on dwh_contracts(con_date);  
 create index dwh_contracts_period_ind on dwh_contracts(period_start, period_end);  
 create index dwh_customers_type_ind on dwh_customers(type);  

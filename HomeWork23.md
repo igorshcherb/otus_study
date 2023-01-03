@@ -123,3 +123,18 @@ select sum_sale from pract_functions.good_sum_mart where good_name = 'Спичк
 
 Схема витрина+триггер позволяет учитывать продажи по ценам, которые были в момент продажи.  
 
+Для INSERT уже сейчас все работает правильно, а для UDDATE и DELETE нужно создать таблицу:  
+create table pract_functions.good_price(  
+  goods_id    integer,  
+  date_start  date,  
+  good_price  numeric(12, 2)  
+);  
+
+и определять цену продукта запросом:  
+select good_price
+from pract_functions.good_price  
+where goods_id = v_goods_id  
+  and date_start = (select max(date_start) from pract_functions.good_price  
+                    where goods_id = v_goods_id   
+                    and date_start <= v_date_start);   
+

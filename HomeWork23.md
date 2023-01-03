@@ -102,8 +102,19 @@ insert into pract_functions.good_sum_mart (good_name, sum_sale)
    group by g.good_name);  
 
 ### Проверка работы триггера ###
-
-
+select sum_sale from pract_functions.good_sum_mart where good_name = 'Спички хозайственные';  
+65.50  
+insert into pract_functions.sales(good_id, sales_qty) values (1, 1);  
+select sum_sale from pract_functions.good_sum_mart where good_name = 'Спички хозайственные';  
+66.00  
+select max(sales_id) from pract_functions.sales;  
+11  
+update pract_functions.sales set sales_qty = 2 where sales_id = 11;  
+select sum_sale from pract_functions.good_sum_mart where good_name = 'Спички хозайственные';  
+66.50  
+delete from pract_functions.sales where sales_id = 11;  
+select sum_sale from pract_functions.good_sum_mart where good_name = 'Спички хозайственные';  
+65.50  
 
 -------------------------------------
 >Задание со звездочкой*  

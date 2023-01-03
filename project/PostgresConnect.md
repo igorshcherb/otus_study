@@ -21,17 +21,17 @@ Ctrl+S
 Ctrl+X  
 
 ### Перезапуск PostgreSQL ###
-$ sudo service postgresql restart
-$ psql
-postgres=# show listen_addresses;
-\q
+$ sudo service postgresql restart  
+$ psql  
+postgres=# show listen_addresses;  
+\q  
 
 ### Определение IP-адреса ###
 $ ip address  
 Например: 192.168.1.7  
 
 ### Настройка DBeaver в хостовой ОС ###
-Соединение: postgres_regsys1 
+Соединение: postgres_regsys1  
 Host: 192.168.1.7  
 Port: 5432  
 Database: postgres  

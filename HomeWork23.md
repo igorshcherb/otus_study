@@ -131,6 +131,7 @@ create table pract_functions.good_price(
 );  
 
 и определять цену продукта запросом:  
+
 select good_price
 from pract_functions.good_price  
 where goods_id = v_goods_id  

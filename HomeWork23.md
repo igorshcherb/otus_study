@@ -12,7 +12,7 @@
 С помощью скрипта hw_triggers.sql создал схему pract_functions, таблицы goods, sales, good_sum_mart.  
 
 ### Функция для триггера ###
-
+```
 create or replace function pract_functions.sales_mart()  
 	returns trigger  
 	language plpgsql  
@@ -84,7 +84,7 @@ as $function$
   end;  
 $function$  
 ;  
-
+```
 ### Триггер ###
 
 create or replace trigger sales_mart_trg  

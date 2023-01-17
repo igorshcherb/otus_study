@@ -125,7 +125,7 @@ select sum_sale from pract_functions.good_sum_mart where good_name = 'Спичк
 
 Для INSERT уже сейчас все работает правильно, а для UPDATE и DELETE нужно:  
 
-1) создать таблицу цен:  
+1. Создать таблицу цен:  
 ```
 create table pract_functions.good_price(  
   goods_id    integer,  
@@ -133,19 +133,20 @@ create table pract_functions.good_price(
   good_price  numeric(12, 2)  
 );  
 ```
-2) выполнить первоначальное заполнение этой таблицы:
+2. Выполнить первоначальное заполнение этой таблицы:
 ```
 insert into pract_functions.good_price
 (select goods_id, '2000-01-01':: timestamp, good_price from pract_functions.goods);
 ```
-3) удалить поле good_price из таблицы goods:
+3. Удалить поле good_price из таблицы goods:
 ```
 alter table pract_functions.goods drop column good_price;
 ```
-4) при изменении цены заносить новую цену отдельной строкой в таблицу good_price,
-5) в триггере определять цену продукта запросом:  
+4. При изменении цены заносить новую цену отдельной строкой в таблицу good_price с указанием даты начала действия цены,
+5. В триггере определять цену продукта запросом:  
 ```
 select good_price
+into v_good_price
 from pract_functions.good_price  
 where goods_id = old.good_id 
   and date_start = (select max(date_start) from pract_functions.good_price  

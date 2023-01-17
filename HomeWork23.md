@@ -129,7 +129,7 @@ select sum_sale from pract_functions.good_sum_mart where good_name = 'Спичк
 ```
 create table pract_functions.good_price(  
   goods_id    integer,  
-  date_start  date,  
+  date_start  timestamp with time zone default now(),  
   good_price  numeric(12, 2)  
 );  
 ```
@@ -137,8 +137,8 @@ create table pract_functions.good_price(
 ```
 select good_price
 from pract_functions.good_price  
-where goods_id = v_goods_id  
+where goods_id = old.good_id 
   and date_start = (select max(date_start) from pract_functions.good_price  
-                    where goods_id = v_goods_id   
-                    and date_start <= v_date_start);   
+                    where goods_id = old.good_id   
+                    and date_start <= old.sales_time);   
 ```

@@ -142,7 +142,7 @@ insert into pract_functions.good_price
 ```
 alter table pract_functions.goods drop column good_price;
 ```
-4. При изменении цены заносить новую цену отдельной строкой в таблицу good_price с указанием даты начала действия цены,
+4. При изменении цены заносить новую цену отдельной строкой в таблицу good_price с указанием даты начала действия цены.
 5. В триггере определять цену продукта запросом:  
 ```
 select good_price

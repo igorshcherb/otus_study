@@ -125,7 +125,7 @@ select sum_sale from pract_functions.good_sum_mart where good_name = 'Спичк
 
 Для INSERT уже сейчас все работает правильно, а для UPDATE и DELETE нужно:  
 
-создать таблицу  
+создать таблицу цен:  
 ```
 create table pract_functions.good_price(  
   goods_id    integer,  

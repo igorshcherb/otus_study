@@ -27,26 +27,26 @@ as $function$
         into v_good_name, v_good_price  
         from pract_functions.goods  
         where goods_id = new.good_id;  
-        - -  
+        --  
         v_sum_sale = v_good_price * new.sales_qty;   
-        - -   
+        --   
         update pract_functions.good_sum_mart  
         set sum_sale = sum_sale + v_sum_sale  
         where good_name = v_good_name;  
-        - -  
+        --  
         if not found then  
           insert into pract_functions.good_sum_mart values (v_good_name, v_sum_sale);  
         end if;  
-        - -  
+        --  
         return new;  
       elsif (tg_op = 'DELETE') then  
         select good_name, good_price  
         into v_good_name, v_good_price  
         from pract_functions.goods  
         where goods_id = old.good_id;  
-        - -  
+        --  
         v_sum_sale = v_good_price * old.sales_qty;  
-        - -   
+        --   
         update pract_functions.good_sum_mart  
         set sum_sale = sum_sale - v_sum_sale  
         where good_name = v_good_name;  
@@ -63,22 +63,22 @@ as $function$
         update pract_functions.good_sum_mart  
         set sum_sale = sum_sale - v_sum_sale  
         where good_name = v_good_name;  
-        - -  
+        --  
         select good_name, good_price  
         into v_good_name, v_good_price  
         from pract_functions.goods  
         where goods_id = new.good_id;  
-        - -  
+        --  
         v_sum_sale = v_good_price * new.sales_qty;  
-        - -   
+        --   
         update pract_functions.good_sum_mart  
         set sum_sale = sum_sale + v_sum_sale  
         where good_name = v_good_name;  
-        - -  
+        --  
         if not found then  
           insert into pract_functions.good_sum_mart values (v_good_name, v_sum_sale);  
         end if;  
-        - -  
+        --  
         return new;  
       end if;  
   end;  
@@ -86,21 +86,21 @@ $function$
 ;  
 ```
 ### Триггер ###
-
+```
 create or replace trigger sales_mart_trg  
     before insert or update or delete  
     on pract_functions.sales  
     for each row  
     execute procedure pract_functions.sales_mart();  
-
+```
 ### Первоначальное заполнение витрины ###
-
+```
 insert into pract_functions.good_sum_mart (good_name, sum_sale)   
   (select g.good_name, sum(g.good_price * s.sales_qty)  
    from pract_functions.goods g  
      inner join pract_functions.sales s on s.good_id = g.goods_id  
    group by g.good_name);  
-
+```
 ### Проверка работы триггера ###
 select sum_sale from pract_functions.good_sum_mart where good_name = 'Спички хозайственные';  
 65.50  
@@ -126,19 +126,19 @@ select sum_sale from pract_functions.good_sum_mart where good_name = 'Спичк
 Для INSERT уже сейчас все работает правильно, а для UPDATE и DELETE нужно:  
 
 создать таблицу  
-
+```
 create table pract_functions.good_price(  
   goods_id    integer,  
   date_start  date,  
   good_price  numeric(12, 2)  
 );  
-
+```
 и определять цену продукта запросом:  
-
+```
 select good_price
 from pract_functions.good_price  
 where goods_id = v_goods_id  
   and date_start = (select max(date_start) from pract_functions.good_price  
                     where goods_id = v_goods_id   
                     and date_start <= v_date_start);   
-
+```
